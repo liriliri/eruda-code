@@ -6,10 +6,7 @@
     },
     "extends": "eslint:recommended",
     "rules": {
-        "indent": [
-            "error",
-            4
-        ],
+        "indent": "off",
         "quotes": [
             "error",
             "single"

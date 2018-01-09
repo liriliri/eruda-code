@@ -13,6 +13,11 @@
     "type": "git",
     "url": "git+https://github.com/liriliri/eruda-code.git"
   },
+  "eustia": {
+    "files": "src/*.js",
+    "output": "src/util.js",
+    "format": "es"
+  },
   "keywords": [
     "eruda",
     "plugin"

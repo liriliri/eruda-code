@@ -1,9 +1,18 @@
 import CodeMirror from 'codemirror';
 import 'codemirror/mode/javascript/javascript';
+import {nextTick, copy} from './util';
 
 module.exports = function (eruda) 
 {
-    let {evalCss} = eruda.util;
+    let {evalCss, beautify} = eruda.util;
+
+    let defCode = [
+        'function fib(num) {',
+        '    if (num <= 2) return 1;',
+        '    return fib(num - 1) + fib(num - 2);',
+        '}',
+        'console.log(fib(5));'
+    ].join('\n');
 
     class Code extends eruda.Tool {
         constructor() {
@@ -19,6 +28,7 @@ module.exports = function (eruda)
             super.init($el, container);
 
             $el.html(require('./template.hbs')());
+            this._bindEvent();
         }
         show() 
         {
@@ -27,16 +37,42 @@ module.exports = function (eruda)
             {
                 let container = this._$el.find('.eruda-editor').get(0);
                 this._editor = CodeMirror(container, {
-                    value: 'console.log("Hello world")!',
+                    value: defCode,
                     lineNumbers: 'true',
                     mode: 'javascript'
                 });
-                this._editor.refresh();
+                nextTick(() => this._editor.refresh());
             }
         }
         hide()
         {
             super.hide();
+        }
+        run() 
+        {
+            try 
+            {
+                evalJs(this._editor.getValue());
+            } catch (e) 
+            {
+                /* eslint-disable no-console */
+                console.error(e);
+            }
+        }
+        beautify() 
+        {
+            let editor = this._editor;
+
+            let value = editor.getValue();
+            editor.setValue(beautify(value));
+        }
+        copy() 
+        {
+            copy(this._editor.getValue());
+        }
+        clear() 
+        {
+            this._editor.setValue('');
         }
         destroy() 
         {
@@ -45,7 +81,29 @@ module.exports = function (eruda)
             evalCss.remove(this._CodeMirrorStyle);
             evalCss.remove(this._CodeMirrorCustomStyle);
         }
+        _bindEvent() 
+        {
+            this._$el.on('click', '.eruda-run', () => this.run())
+                     .on('click', '.eruda-beautify', () => this.beautify())
+                     .on('click', '.eruda-clear', () => this.clear())
+                     .on('click', '.eruda-copy', () => this.copy());
+        }
     }
+
+    let evalJs = code =>
+    {
+        let ret;
+
+        try 
+        {
+            ret = eval.call(window, `(${code})`);
+        } catch (e) 
+        {
+            ret = eval.call(window, code);
+        }
+
+        return ret;
+    };
 
     return new Code();
 };
