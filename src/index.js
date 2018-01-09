@@ -6,14 +6,6 @@ module.exports = function (eruda)
 {
     let {evalCss, beautify} = eruda.util;
 
-    let defCode = [
-        'function fib(num) {',
-        '    if (num <= 2) return 1;',
-        '    return fib(num - 1) + fib(num - 2);',
-        '}',
-        'console.log(fib(5));'
-    ].join('\n');
-
     class Code extends eruda.Tool {
         constructor() {
             super();
@@ -36,8 +28,7 @@ module.exports = function (eruda)
             if (!this._editor) 
             {
                 let container = this._$el.find('.eruda-editor').get(0);
-                this._editor = CodeMirror(container, {
-                    value: defCode,
+                this._editor = CodeMirror.fromTextArea(container, {
                     lineNumbers: 'true',
                     mode: 'javascript'
                 });
