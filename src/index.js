@@ -10,7 +10,8 @@ module.exports = function (eruda)
             super();
             this.name = 'code';
             this._style = evalCss(require('./style.scss'));
-            this._CodeMirrorStyle = evalCss(require('./CodeMirror.css'));
+            this._CodeMirrorStyle = evalCss(require('codemirror/lib/codemirror.css'));
+            this._CodeMirrorCustomStyle = evalCss(require('./CodeMirror.css'));
             this._editor = null;
         }
         init($el, container) 
@@ -31,11 +32,6 @@ module.exports = function (eruda)
                     mode: 'javascript'
                 });
                 this._editor.refresh();
-                CodeMirror(document.body, {
-                    value: 'console.log("Hello world")!',
-                    lineNumbers: 'true',
-                    mode: 'javascript'
-                });
             }
         }
         hide()
@@ -47,6 +43,7 @@ module.exports = function (eruda)
             super.destroy();
             evalCss.remove(this._style);
             evalCss.remove(this._CodeMirrorStyle);
+            evalCss.remove(this._CodeMirrorCustomStyle);
         }
     }
 

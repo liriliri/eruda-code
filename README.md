@@ -1,6 +1,6 @@
 # eruda-code
 
-Eruda plugin for xxx.
+Eruda plugin for running JavaScript code.
 
 ## Demo
 

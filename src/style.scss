@@ -1,5 +1,3 @@
-@import '../node_modules/codemirror/lib/codemirror.css';
-
 $gray: #707d8b;
 $gray-light: #eceffe;
 $anim-duration: .3s;
@@ -25,7 +23,7 @@ $blue: #2196f3;
             color: $gray;
             font-size: 14px;
             line-height: 40px;
-            width: 50%;
+            width: 25%;
             border-right: 1px solid $gray-light;
             display: inline-block;
             transition: background $anim-duration, color $anim-duration;

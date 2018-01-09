@@ -1,3 +1,15 @@
 .CodeMirror {
     height: 100%;
 }
+
+/* Sync style with chrome dev-tool */
+.cm-keyword {color: hsl(310, 86%, 36%);}
+.cm-number {color: hsl(248, 100%, 41%);}
+.cm-comment {color: hsl(120, 100%, 23%) !important; font-style: italic;}
+.cm-string {color: hsl(1, 80%, 43%) !important;}
+.cm-string-2 {color: hsl(1, 99%, 39%) !important;}
+.cm-atom {color: hsl(310, 86%, 36%);}
+.cm-def {color: hsl(240, 73%, 38%);}
+.cm-operator {color: hsl(27, 100%, 30%);}
+.cm-meta {color: hsl(27, 100%, 30%);}
+.cm-variable-2 {color: hsl(240, 73%, 38%);}

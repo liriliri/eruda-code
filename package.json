@@ -1,6 +1,7 @@
 {
   "name": "eruda-code",
   "version": "1.0.0",
+  "description": "Eruda plugin for running JavaScript code",
   "main": "eruda-code.js",
   "scripts": {
     "dev": "webpack-dev-server --host 0.0.0.0",
@@ -8,11 +9,20 @@
     "ci": "npm run lint && npm run build",
     "lint": "eslint src/**/*.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liriliri/eruda-code.git"
+  },
   "keywords": [
     "eruda",
     "plugin"
   ],
-  "author": "",
+  "author": "redhoodsu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liriliri/eruda-code/issues"
+  },
+  "homepage": "https://github.com/liriliri/eruda-code#readme",
   "devDependencies": {
     "autoprefixer": "^7.2.2",
     "babel-core": "^6.26.0",

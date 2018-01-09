@@ -67,7 +67,33 @@ var exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'css-loader'
+                loaders: [ 
+                    'css-loader', 
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function () 
+                            {
+                                return [postcss.plugin('postcss-namespace', function () 
+                                {
+                                    // Add '.dev-tools .tools ' to every selector.
+                                    return function (root) 
+                                    {
+                                        root.walkRules(function (rule) 
+                                        {
+                                            if (!rule.selectors) return rule;
+
+                                            rule.selectors = rule.selectors.map(function (selector) 
+                                            {
+                                                return '.eruda-dev-tools .eruda-tools ' + selector;
+                                            });
+                                        });
+                                    };
+                                }), autoprefixer];
+                            }
+                        }
+                    }
+                ]
             },
             {
                 test: /\.hbs$/,
