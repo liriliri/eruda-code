@@ -1,4 +1,5 @@
 /src/
+.eslintignore
 .eslintrc.json
 .gitignore
 .npmignore
