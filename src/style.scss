@@ -1,39 +1,36 @@
-$gray: #707d8b;
-$gray-light: #eceffe;
-$anim-duration: .3s;
-$blue: #2196f3;
+$anim-duration: 0.3s;
 
 .code {
-    padding-bottom: 40px;
-    .editor {
-        height: 100%;
+  padding-bottom: 40px;
+  .editor {
+    height: 100%;
+  }
+  .bottom-bar {
+    height: 40px;
+    background: var(--darker-background);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 0;
+    border-top: 1px solid var(--border);
+    .btn {
+      cursor: pointer;
+      text-align: center;
+      color: var(--foreground);
+      font-size: 14px;
+      line-height: 40px;
+      width: 25%;
+      border-right: 1px solid var(--border);
+      display: inline-block;
+      transition: background $anim-duration, color $anim-duration;
+      &:active {
+        background: var(--highlight);
+        color: var(--select-foreground);
+      }
+      &.active {
+        color: var(--select-foreground);
+      }
     }
-    .bottom-bar {
-        height: 40px;
-        background: #fff;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        font-size: 0;
-        border-top: 1px solid $gray-light;
-        .btn {
-            cursor: pointer;
-            text-align: center;
-            color: $gray;
-            font-size: 14px;
-            line-height: 40px;
-            width: 25%;
-            border-right: 1px solid $gray-light;
-            display: inline-block;
-            transition: background $anim-duration, color $anim-duration;
-            &:active {
-                background: $blue;
-                color: #fff;
-            }
-            &.active {
-                color: $blue;
-            }
-        }
-    }
+  }
 }

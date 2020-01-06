@@ -1,13 +1,14 @@
 {
   "name": "eruda-code",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Eruda plugin for running JavaScript code",
   "main": "eruda-code.js",
   "scripts": {
     "dev": "webpack-dev-server --host 0.0.0.0",
-    "build": "webpack && webpack -p",
+    "build": "webpack -p",
     "ci": "npm run lint && npm run build",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "format": "prettier src/**/*.js src/**/*.scss *.js index.html --write"
   },
   "repository": {
     "type": "git",
@@ -29,23 +30,26 @@
   },
   "homepage": "https://github.com/liriliri/eruda-code#readme",
   "devDependencies": {
-    "autoprefixer": "^7.2.2",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.1",
-    "codemirror": "^5.33.0",
-    "css-loader": "^0.28.7",
-    "eruda": "^1.4.0",
-    "eslint": "^4.12.1",
-    "handlebars": "^4.0.11",
-    "handlebars-loader": "^1.6.0",
-    "node-sass": "^4.7.2",
-    "postcss": "^6.0.14",
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/runtime": "^7.7.2",
+    "autoprefixer": "^9.7.1",
+    "babel-loader": "^8.0.6",
+    "codemirror": "^5.50.2",
+    "css-loader": "^3.4.1",
+    "eruda": "^2.0.0",
+    "eslint": "^6.6.0",
+    "handlebars": "^4.5.1",
+    "handlebars-loader": "^1.7.1",
+    "node-sass": "^4.13.0",
+    "postcss": "^7.0.21",
     "postcss-class-prefix": "^0.3.0",
-    "postcss-loader": "^2.0.9",
-    "sass-loader": "^6.0.6",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7"
+    "postcss-loader": "^3.0.0",
+    "prettier": "^1.18.2",
+    "sass-loader": "^8.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
   }
 }
