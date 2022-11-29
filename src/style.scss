@@ -23,7 +23,7 @@ $anim-duration: 0.3s;
       width: 25%;
       border-right: 1px solid var(--border);
       display: inline-block;
-      transition: background $anim-duration, color $anim-duration;
+      transition: background-color $anim-duration, color $anim-duration;
       &:active {
         background: var(--highlight);
         color: var(--select-foreground);

@@ -12,4 +12,3 @@ module.exports = {
     sourceType: 'module'
   }
 }
-  

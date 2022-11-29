@@ -1,36 +1,41 @@
 .CodeMirror {
   height: 100%;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.CodeMirror-gutters {
+  background: var(--background);
+  border-color: var(--border);
 }
 
 /* Sync style with chrome dev-tool */
-.cm-keyword {
-  color: hsl(310, 86%, 36%);
+.cm-s-default .cm-keyword {
+  color: var(--keyword-color);
 }
-.cm-number {
-  color: hsl(248, 100%, 41%);
+.cm-s-default .cm-number {
+  color: var(--number-color);
 }
-.cm-comment {
-  color: hsl(120, 100%, 23%) !important;
+.cm-s-default .cm-comment {
+  color: var(--comment-color) !important;
   font-style: italic;
 }
-.cm-string {
-  color: hsl(1, 80%, 43%) !important;
-}
-.cm-string-2 {
-  color: hsl(1, 99%, 39%) !important;
+.cm-s-default .cm-string,
+.cm-s-default .com-string-2 {
+  color: var(--string-color);
 }
 .cm-atom {
-  color: hsl(310, 86%, 36%);
+  color: var(--attribute-name-color);
 }
-.cm-def {
-  color: hsl(240, 73%, 38%);
+.cm-s-default .cm-def {
+  color: var(--foreground);
 }
 .cm-operator {
-  color: hsl(27, 100%, 30%);
+  color: var(--operator-color);
 }
-.cm-meta {
-  color: hsl(27, 100%, 30%);
+.cm-s-default .cm-meta {
+  color: var(--tag-name-color);
 }
-.cm-variable-2 {
-  color: hsl(240, 73%, 38%);
+.cm-s-default .cm-variable-2 {
+  color: var(--var-color);
 }

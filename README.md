@@ -1,13 +1,13 @@
 # eruda-code
 
 [![NPM version][npm-image]][npm-url]
-[![Build status][travis-image]][travis-url]
+[![Build status][ci-image]][ci-url]
 [![License][license-image]][npm-url]
 
 [npm-image]: https://img.shields.io/npm/v/eruda-code.svg
 [npm-url]: https://npmjs.org/package/eruda-code
-[travis-image]: https://img.shields.io/travis/liriliri/eruda-code.svg
-[travis-url]: https://travis-ci.org/liriliri/eruda-code
+[ci-image]: https://img.shields.io/github/workflow/status/liriliri/eruda-code/CI?style=flat-square
+[ci-url]: https://github.com/liriliri/eruda-code/actions/workflows/main.yml
 [license-image]: https://img.shields.io/npm/l/eruda-code.svg
 
 Eruda plugin for running JavaScript code.
@@ -15,7 +15,7 @@ Eruda plugin for running JavaScript code.
 ## Demo
 
 Browse it on your phone: 
-[http://eruda.liriliri.io/](http://eruda.liriliri.io/)
+[http://eruda.liriliri.io/?plugin=code](http://eruda.liriliri.io/?plugin=code)
 
 ## Install
 

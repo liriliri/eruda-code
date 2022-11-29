@@ -1,16 +1,21 @@
 import CodeMirror from 'codemirror'
 import 'codemirror/mode/javascript/javascript'
-import { nextTick, copy } from './util'
+import nextTick from 'licia/nextTick'
+import copy from 'licia/copy'
+import beautify from 'js-beautify'
 
 export default function(eruda) {
-  let { evalCss, beautify } = eruda.util
+  let { evalCss } = eruda.util
 
   class Code extends eruda.Tool {
     constructor() {
       super()
       this.name = 'code'
       this._style = evalCss(require('./style.scss'))
-      this._CodeMirrorStyle = evalCss(require('codemirror/lib/codemirror.css'))
+      this._CodeMirrorStyle = evalCss(
+        require('codemirror/lib/codemirror.css') +
+          require('codemirror/theme/material-darker.css')
+      )
       this._CodeMirrorCustomStyle = evalCss(require('./CodeMirror.css'))
       this._editor = null
     }
@@ -50,6 +55,7 @@ export default function(eruda) {
     }
     copy() {
       copy(this._editor.getValue())
+      eruda.get().notify('Copied')
     }
     clear() {
       this._editor.setValue('')
