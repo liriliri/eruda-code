@@ -6,7 +6,7 @@
 
 [npm-image]: https://img.shields.io/npm/v/eruda-code.svg
 [npm-url]: https://npmjs.org/package/eruda-code
-[ci-image]: https://img.shields.io/github/workflow/status/liriliri/eruda-code/CI?style=flat-square
+[ci-image]: https://img.shields.io/github/actions/workflow/status/liriliri/eruda-code/main.yml?branch=master&style=flat-square 
 [ci-url]: https://github.com/liriliri/eruda-code/actions/workflows/main.yml
 [license-image]: https://img.shields.io/npm/l/eruda-code.svg
 

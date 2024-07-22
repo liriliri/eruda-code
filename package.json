@@ -3,53 +3,44 @@
   "version": "2.1.0",
   "description": "Eruda plugin for running JavaScript code",
   "main": "eruda-code.js",
-  "scripts": {
-    "dev": "webpack-dev-server --host 0.0.0.0",
-    "build": "webpack -p",
-    "ci": "npm run lint && npm run build",
-    "lint": "eslint \"src/**/*.js\"",
-    "format": "prettier \"src/**/*.js\" \"src/**/*.scss\" \"*.js\" \"index.html\" --write"
-  },
   "files": [
-    "eruda-code*"
+    "eruda-code.js",
+    "eruda-code.js.map"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/liriliri/eruda-code.git"
+  "scripts": {
+    "dev": "webpack-dev-server --host 0.0.0.0 --mode development",
+    "build": "webpack --mode production",
+    "ci": "npm run lint && npm run build && npm run es5",
+    "lint": "eslint src/**/*.js",
+    "format": "lsla prettier \"src/*.{js,scss}\" \"*.{js,json}\" --write",
+    "es5": "es-check es5 eruda-monitor.js"
   },
   "keywords": [
     "eruda",
     "plugin"
   ],
-  "author": "redhoodsu",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/liriliri/eruda-code/issues"
-  },
-  "homepage": "https://github.com/liriliri/eruda-code#readme",
+  "author": "surunzi",
   "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/plugin-transform-runtime": "^7.6.2",
-    "@babel/preset-env": "^7.7.1",
-    "@babel/runtime": "^7.7.2",
-    "autoprefixer": "^9.7.1",
-    "babel-loader": "^8.0.6",
-    "codemirror": "^5.50.2",
-    "css-loader": "^3.4.1",
-    "eruda": "^2.6.1",
-    "eslint": "^6.6.0",
-    "handlebars": "^4.5.1",
-    "handlebars-loader": "^1.7.1",
+    "@babel/core": "^7.21.3",
+    "@babel/plugin-transform-runtime": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "codemirror": "^5.65.17",
+    "css-loader": "^3.4.2",
+    "eruda": "^3.2.0",
+    "es-check": "^7.2.1",
+    "eslint": "^8.57.0",
     "js-beautify": "^1.14.7",
-    "licia": "^1.37.0",
-    "node-sass": "^4.13.0",
-    "postcss": "^7.0.21",
+    "licia": "^1.41.0",
+    "node-sass": "^8.0.0",
+    "postcss": "^8.4.21",
     "postcss-class-prefix": "^0.3.0",
-    "postcss-loader": "^3.0.0",
-    "prettier": "^1.18.2",
-    "sass-loader": "^8.0.0",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "postcss-loader": "^7.0.2",
+    "sass": "^1.77.8",
+    "sass-loader": "^14.2.1",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.12.0"
   }
 }

@@ -3,8 +3,9 @@ import 'codemirror/mode/javascript/javascript'
 import nextTick from 'licia/nextTick'
 import copy from 'licia/copy'
 import beautify from 'js-beautify'
+import stripIndent from 'licia/stripIndent'
 
-export default function(eruda) {
+export default function (eruda) {
   let { evalCss } = eruda.util
 
   class Code extends eruda.Tool {
@@ -22,7 +23,25 @@ export default function(eruda) {
     init($el, container) {
       super.init($el, container)
 
-      $el.html(require('./template.hbs')())
+      $el.html(stripIndent`<textarea class="eruda-editor">function fib(num) {
+        if (num <= 2) return 1;
+        return fib(num - 1) + fib(num - 2);
+      }
+      console.log(fib(5));</textarea>
+      <div class="eruda-bottom-bar">
+        <div class="eruda-btn eruda-beautify">
+          Beautify
+        </div>
+        <div class="eruda-btn eruda-copy">
+          Copy
+        </div>
+        <div class="eruda-btn eruda-clear">
+          Clear
+        </div>
+        <div class="eruda-btn eruda-run">
+          Run
+        </div>
+      </div>`)
       this._bindEvent()
     }
     show() {
@@ -31,7 +50,7 @@ export default function(eruda) {
         let container = this._$el.find('.eruda-editor').get(0)
         this._editor = CodeMirror.fromTextArea(container, {
           lineNumbers: 'true',
-          mode: 'javascript'
+          mode: 'javascript',
         })
         nextTick(() => this._editor.refresh())
       }
@@ -55,7 +74,7 @@ export default function(eruda) {
     }
     copy() {
       copy(this._editor.getValue())
-      eruda.get().notify('Copied')
+      eruda.get().notify('Copied', { icon: 'success' })
     }
     clear() {
       this._editor.setValue('')
@@ -75,7 +94,7 @@ export default function(eruda) {
     }
   }
 
-  let evalJs = code => {
+  let evalJs = (code) => {
     let ret
 
     try {
