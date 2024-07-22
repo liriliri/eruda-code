@@ -3,6 +3,10 @@
   "version": "2.2.0",
   "description": "Eruda plugin for running JavaScript code",
   "main": "eruda-code.js",
+  "browserslist": [
+    "since 2015",
+    "not dead"
+  ],
   "files": [
     "eruda-code.js",
     "eruda-code.js.map"
@@ -13,7 +17,7 @@
     "ci": "npm run lint && npm run build && npm run es5",
     "lint": "eslint src/**/*.js",
     "format": "lsla prettier \"src/*.{js,scss}\" \"*.{js,json}\" --write",
-    "es5": "es-check es5 eruda-monitor.js"
+    "es5": "es-check es5 eruda-code.js"
   },
   "keywords": [
     "eruda",
