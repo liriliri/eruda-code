@@ -15,7 +15,7 @@ Eruda plugin for running JavaScript code.
 ## Demo
 
 Browse it on your phone: 
-[http://eruda.liriliri.io/?plugin=code](http://eruda.liriliri.io/?plugin=code)
+[https://eruda.liriliri.io/?plugin=code](https://eruda.liriliri.io/?plugin=code)
 
 ## Install
 
